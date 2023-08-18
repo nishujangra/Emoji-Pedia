@@ -2,16 +2,16 @@ import './App.css';
 import emojipedia from './emojipedia';
 import Entry from './components/Entry';
 
-function createEntry(emojiTerm) {
-  return (
-    <Entry 
-      key = {emojiTerm.id}
-      emoji = {emojiTerm.emoji}
-      name = {emojiTerm.name}
-      description = {emojiTerm.meaning}
-    />
-  );
-}
+// function createEntry(emojiTerm) {
+//   return (
+//     <Entry 
+//       key = {emojiTerm.id}
+//       emoji = {emojiTerm.emoji}
+//       name = {emojiTerm.name}
+//       description = {emojiTerm.meaning}
+//     />
+//   );
+// }
 
 function App() {
   return (
@@ -20,7 +20,16 @@ function App() {
         <span>Emoji Vista</span>
       </h1>
       <dl className='dictionary'>
-        {emojipedia.map(createEntry)}
+        {emojipedia.map( emojiTerm => {
+          return (
+            <Entry 
+              key = {emojiTerm.id}
+              emoji = {emojiTerm.emoji}
+              name = {emojiTerm.name}
+              description = {emojiTerm.meaning}
+            />
+          )
+        })}
       </dl>
     </div>
   );
